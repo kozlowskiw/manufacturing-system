@@ -1,0 +1,29 @@
+/*
+ *
+ * Custom Styles
+ *
+ */
+
+.card-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1.25rem;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: calc(0.25rem - 1px);
+    text-transform: uppercase;
+    font-size: 1.35rem;
+}
+
+.card-panel:hover {
+    text-decoration: none;
+}
+
+.goto-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 30px;
+}

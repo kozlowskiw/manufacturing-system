@@ -75,10 +75,6 @@ class ProductsController extends Controller
      */
     public function edit(Product $product)
     {
-        if(Gate::denies('manage-resources')){
-            return redirect(route('product.index'));
-        }
-
         return view('product.edit')->with([
             'product' => $product
         ]);

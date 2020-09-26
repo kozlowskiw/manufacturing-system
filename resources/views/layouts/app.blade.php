@@ -12,7 +12,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{--Element title definuje tytył dokumentu, który zostaje wyświetlony na pasku tytułu przeglądarki--}}
-    <title>{{ config('app.name', 'Projekt pracy magisterskiej') }}</title>
+    <title>{{ config('app.name', 'System zarządzania produkcją') }}</title>
 
     <!-- Scripts -->
     {{--    Element zwracający się do zewnętrznego pliku skryptów JS--}}
@@ -36,7 +36,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Projekt pracy magisterskiej') }}
+                    {{ config('app.name', 'System zarządzania produkcją') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

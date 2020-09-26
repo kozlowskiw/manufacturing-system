@@ -77,10 +77,6 @@ class OperationsController extends Controller
      */
     public function edit(Operation $operation)
     {
-        if(Gate::denies('manage-resources')){
-            return redirect(route('operation.index'));
-        }
-
         return view('operation.edit')->with([
             'operation' => $operation
         ]);

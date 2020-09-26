@@ -15,11 +15,6 @@
                 @endif
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
                     <h4 class="card-title text-center my-4">PRZEJDŹ DO</h4>
 
                     <div class="goto-links">

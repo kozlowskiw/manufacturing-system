@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Role;
 use App\Department;
+use App\WorkRecord;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
@@ -85,7 +87,18 @@ class UsersController extends Controller
     public function show(User $user)
     {
         $user = Auth::user();
-        return view('admin.users.show')->with('user', $user);
+        $last_month_records = WorkRecord::where('user_id', $user->id)->whereMonth('end_time', '=', Carbon::now()->month)->get(['actual_working_time']);
+
+        $last_month_working_time = 0;
+        foreach($last_month_records as $last_month_record) {
+            $last_month_working_time += $last_month_record['actual_working_time'];
+        }
+        $last_month_working_time = intdiv($last_month_working_time, 60).'h i '. ($last_month_working_time % 60).'min';
+
+        return view('admin.users.show')->with([
+            'user'=> $user,
+            'last_month_working_time' => $last_month_working_time
+        ]);
     }
 
     /**

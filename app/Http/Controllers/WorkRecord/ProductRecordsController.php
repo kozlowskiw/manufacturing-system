@@ -84,13 +84,18 @@ class ProductRecordsController extends Controller
     public function create()
     {
         $user = Auth::user();
-        $products = Product::all()->toJson();
-        $operations = Operation::all()->toJson();
+        $products = Product::all();
+        $operations = Operation::all();
 
         Storage::disk('public')->put('products.json', $products);
         Storage::disk('public')->put('operations.json', $operations);
 
-        return response()->view('product-record/create', ['user' => $user]);
+        return response()->view('product-record/create',[
+            'user' => $user,
+            'products' => $products,
+            'operations' => $operations
+
+        ]);
     }
 
     /**

@@ -19,8 +19,6 @@
                             <tr>
                                 <td><?php echo date('Y-m-d') ?></td>
                                 <td><?php echo date('H:i:s') ?></td>
-                                {{--                                <td>{{ $user->login }}</td>--}}
-                                {{--                                <td>{{ implode(', ', $user->roles()->get()->pluck('name')->toArray()) }}</td>--}}
                                 <td>
                                     <form action="{{ route('ewidencja.praca.start') }}" method="POST">
                                         @csrf

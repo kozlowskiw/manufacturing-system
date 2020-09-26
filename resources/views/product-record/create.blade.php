@@ -10,7 +10,7 @@
                         @csrf
                         @method('POST')
                         <input class="btn btn-secondary" type="submit" value="Zapisz">
-                        <table id="products_table" data-url="{{ asset("storage/products.json") }}" data-height="344" data-id-field="id" data-select-item-name="product" data-search="true" data-single-select="true" data-click-to-select="true" data-search-align="left">
+                        <table id="products_table" data-height="344" data-id-field="id" data-select-item-name="product" data-search="true" data-single-select="true" data-click-to-select="true" data-search-align="left">
                             <thead class="thead-dark">
                             <tr>
                                 <th data-field="state" data-checkbox="true"></th>
@@ -19,6 +19,16 @@
                                 <th data-field="name" scope="col">Nazwa</th>
                             </tr>
                             </thead>
+                            <tbody id="product_table_body">
+                            @foreach($products as $product)
+                                <tr>
+                                    <td></td>
+                                    <td>{{ $product->id }}</td>
+                                    <td>{{ $product->code }}</td>
+                                    <td>{{ $product->name }}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
                         </table>
 
                         <table id="operations_table" data-height="344" data-id-field="id" data-select-item-name="operation" data-search="true" data-single-select="true" data-click-to-select="true" data-search-align="left" >
